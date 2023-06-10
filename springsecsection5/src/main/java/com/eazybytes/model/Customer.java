@@ -10,7 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Customer {
     @Id //기본키
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native") //데이터베이스에 기본키의 대한 id값 자동 증가
-    @GenericGenerator(name = "native",strategy = "native") //시퀀스 자동 생성 및 증가
+    @GenericGenerator(name = "native",strategy = "native") //@GenericGenerator를 통해 사용자 정의 주키 생성 전략을 구현, 시퀀스 자동 생성 및 증가
     private int id;
     private String email;
     private String pwd;
