@@ -47,6 +47,9 @@ public class LoginController {
         return response;
     }
 
+    //로그인에 성공후 사용자 정보를 가져올 때는 Authentication객체를 사용한다.
+    //스프링 3.X버전 이후부터는 @AuthenticationPrincipal을 사용한다는데.. 이 부분은 강의내용은 아니고 아래 블로그 글임.
+    //https://itstory.tk/entry/Spring-Security-%ED%98%84%EC%9E%AC-%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%95%9C-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A0%95%EB%B3%B4-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0
     @RequestMapping("/user")
     public Customer getUserDetailsAfterLogin(Authentication authentication) {
         List<Customer> customers = customerRepository.findByEmail(authentication.getName());
