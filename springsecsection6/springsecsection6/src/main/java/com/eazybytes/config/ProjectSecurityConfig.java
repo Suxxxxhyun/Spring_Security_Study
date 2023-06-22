@@ -49,7 +49,7 @@ public class ProjectSecurityConfig {
                     @Override
                     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                         CorsConfiguration config = new CorsConfiguration();
-                        config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
+                        config.setAllowedOrigins(Collections.singletonList("http://localhost:57388"));
                         config.setAllowedMethods(Collections.singletonList("*"));
                         config.setAllowCredentials(true);
                         config.setAllowedHeaders(Collections.singletonList("*"));
@@ -59,8 +59,8 @@ public class ProjectSecurityConfig {
                 }))
 
                 //csrf는 사이트간 위조 요청인데, 정상적인 사용자가 의도치 않은 위조요청을 보내는 것.
-                //시큐러티에서 csrf를 diable하는 이유 -> REST API를 이용한 서버는 세션 인증기반과 다르게
-                //stateless하기 때문에 서버에 인증정보를 관리하지 않음.
+                //시큐러티에서 csrf를 disable하는 이유 -> REST API를 이용한 서버는 세션 인증기반과 다르게
+                //stateless(서버가 클라이언트의 상태를 보존하지 않음)하기 때문에 서버에 인증정보를 관리하지 않음.
 
                 .csrf((csrf) -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests.requestMatchers("/myAccount","/myBalance","/myLoans","/myCards").authenticated()
