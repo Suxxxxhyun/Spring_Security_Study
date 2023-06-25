@@ -9,6 +9,7 @@ public class Customer {
     @Id //기본키
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native") //데이터베이스에 기본키의 대한 id값 자동 증가
     @GenericGenerator(name = "native",strategy = "native") //시퀀스 자동 생성 및 증가
+    @Column(name = "customer_id")
     private int id;
     private String name;
     private String email;
